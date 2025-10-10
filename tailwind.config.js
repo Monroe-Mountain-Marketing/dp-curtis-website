@@ -209,6 +209,73 @@ module.exports = {
           DEFAULT: 'var(--card)',
           foreground: 'var(--card-foreground)',
         },
+        // 950 variants using CSS custom properties
+        slate: {
+          950: 'var(--slate-950)',
+        },
+        gray: {
+          950: 'var(--gray-950)',
+        },
+        zinc: {
+          950: 'var(--zinc-950)',
+        },
+        neutral: {
+          950: 'var(--neutral-950)',
+        },
+        stone: {
+          950: 'var(--stone-950)',
+        },
+        red: {
+          950: 'var(--red-950)',
+        },
+        orange: {
+          950: 'var(--orange-950)',
+        },
+        amber: {
+          950: 'var(--amber-950)',
+        },
+        yellow: {
+          950: 'var(--yellow-950)',
+        },
+        lime: {
+          950: 'var(--lime-950)',
+        },
+        green: {
+          950: 'var(--green-950)',
+        },
+        emerald: {
+          950: 'var(--emerald-950)',
+        },
+        teal: {
+          950: 'var(--teal-950)',
+        },
+        cyan: {
+          950: 'var(--cyan-950)',
+        },
+        sky: {
+          950: 'var(--sky-950)',
+        },
+        blue: {
+          950: 'var(--blue-950)',
+        },
+        indigo: {
+          950: 'var(--indigo-950)',
+        },
+        violet: {
+          950: 'var(--violet-950)',
+        },
+        purple: {
+          950: 'var(--purple-950)',
+        },
+        fuchsia: {
+          950: 'var(--fuchsia-950)',
+        },
+        pink: {
+          950: 'var(--pink-950)',
+        },
+        rose: {
+          950: 'var(--rose-950)',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

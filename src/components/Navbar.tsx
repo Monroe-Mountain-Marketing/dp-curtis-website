@@ -24,11 +24,21 @@ import { Moon, Sun } from "lucide-react";
 import OpenSkyLogoSvg from '@/assets/open-sky-logo-light-h.svg';
 import OpenSkyLogoDarkSvg from '@/assets/open-sky-logo-dark-h.svg';
 import ProfileIcon from '@/assets/profile-icon.png';
+import cn from "classnames";
 
 interface RouteProps {
   href: string;
   label: string;
 }
+
+const navSectionItems: RouteProps[] = [
+  { href: "#tech-stack", label: "Tech Stack" },
+  { href: "#ui-components", label: "UI System" },
+  { href: "#features", label: "Core Features" },
+  { href: "#architecture", label: "Architecture" },
+  { href: "#deployment", label: "Deployment" },
+  { href: "#getting-started", label: "Get Started" },
+];
 
 const routeList: RouteProps[] = [
   {
@@ -44,13 +54,40 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const {isAuthenticated, user, handleLogout } = useAuthStore();
+  const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
 
-  const { theme, setTheme } = useTheme();
+  const isHomePage = location.pathname === "/";
 
   const logout = () => {
     handleLogout();
     navigate('/');
+  };
+
+  // Ensure in-page section links scroll instead of routing
+  const handleSectionClick = (href: string, closeSheet?: boolean) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Only intercept for hash links on the homepage
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const id = href.replace(/^#/, '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Fallback: update hash so browser attempts default behavior if element appears later
+        window.location.hash = href;
+      }
+      if (closeSheet) setIsOpen(false);
+    }
+  };
+
+  // Handle logo click - scroll to top on homepage, navigate otherwise
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // If not on homepage, allow default navigation to "/"
   };
 
   return (
@@ -61,7 +98,8 @@ export const Navbar = () => {
             <a
               rel="noreferrer noopener"
               href="/"
-              className="ml-2 font-bold text-xl flex items-center"
+              onClick={handleLogoClick}
+              className="ml-2 font-bold text-xl flex items-center cursor-pointer"
             >
               <img 
                 src={theme === 'dark' ? OpenSkyLogoDarkSvg : OpenSkyLogoSvg} 
@@ -170,6 +208,29 @@ export const Navbar = () => {
           </div>
         </NavigationMenuList>
       </NavigationMenu>
+
+      {isHomePage && navSectionItems.length > 0 &&
+        <NavigationMenu className={cn(
+          "hidden md:flex max-w-full w-full border-t border-t-gray-800 shadow-md",
+          "bg-background dark:bg-background brightness-[98%] dark:brightness-[120%]",
+        )}>
+          <NavigationMenuList className="container h-10 px-4 w-screen flex justify-between items-center">
+            {navSectionItems.map(({ href, label }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={handleSectionClick(href)}
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: 'xs' }),
+                  "hover:dark:bg-card hover:bg-secondary hover:text-primary"
+                )}
+              >
+                {label}
+              </a>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      }
     </header>
   );
 };
