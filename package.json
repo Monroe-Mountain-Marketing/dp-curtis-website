@@ -1,13 +1,16 @@
 {
-  "name": "react-vite-shadcn-template",
-  "description": "Landing page template utilizing React, Vite, Shadcn, Typescript, and Tailwind CSS for rapid development and responsive design.",
+  "name": "open-sky-solutions-app",
+  "description": "Open Sky Solutions - Professional software development and business consulting services",
   "author": {
-    "name": "Schott Taylor",
-    "email": "schotttaylor@gmail.com",
+    "name": "Open Sky Solutions",
+    "email": "support@openskydev.com",
     "url": "https://github.com/openskysolutions"
   },
   "license": "MIT",
   "keywords": [
+    "open-sky-solutions",
+    "software-development",
+    "business-consulting",
     "react",
     "typescript",
     "shadcn",
@@ -36,9 +39,9 @@
     "electron:build": "electron-builder"
   },
   "dependencies": {
-    "@capacitor/android": "^5.1.1",
-    "@capacitor/core": "^5.1.1",
-    "@capacitor/ios": "^5.1.1",
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/ios": "^7.4.3",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -61,7 +64,7 @@
     "zustand": "^5.0.4"
   },
   "devDependencies": {
-    "@capacitor/cli": "^5.1.1",
+    "@capacitor/cli": "^7.4.3",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

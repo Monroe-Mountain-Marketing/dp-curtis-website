@@ -1,30 +1,35 @@
 html {
   scroll-behavior: smooth;
+  font-weight: 200;
+}
+
+input {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 /* HeroCards background shadow */
 .shadow {
   position: absolute;
-  background: hsl(var(--primary) / 0%);
-  border-radius: 24px;
-  rotate: 35deg;
+  background: rgb(from var(--primary) r g b / 0.5) !important;
+  border-radius: 50%;
   z-index: -1;
-  width: 260px;
+  width: 20vw;
   top: 200px;
-  height: 400px;
-  filter: blur(150px);
+  height: 20vw;
+  filter: blur(10vw);
   will-change: transform;
-  animation: shadow-slide infinite 4s linear alternate;
+  animation: shadow-slide infinite 12s linear alternate;
 }
 
 @keyframes shadow-slide {
   from {
-    background: hsl(var(--primary) / 20%);
-    right: 460px;
+    background: rgb(from var(--primary) r g b / 0.2) !important;
+    right: 80vw;
   }
   to {
-    background: hsl(var(--primary) / 80%);
-    right: 160px;
+    background: rgb(from var(--primary) r g b / 0.8) !important;
+    right: 0vw;
   }
 }
 
@@ -35,32 +40,32 @@ html {
 
   @keyframes shadow-slide {
     from {
-      background: hsl(var(--primary) / 20%);
-      right: 460px;
+      background: rgb(from var(--primary) r g b / 0.2) !important;
+      right: 80vw;
     }
     to {
-      background: hsl(var(--primary) / 50%);
-      right: 160px;
+      background: rgb(from var(--primary) r g b / 0.5) !important;
+      right: 0vw;
     }
   }
 }
 
 @media (max-width: 768px) {
   .shadow {
-    top: 70px;
-    width: 100px;
-    height: 350px;
-    filter: blur(60px);
+    top: 140px;
+    width: 40vw;
+    height: 60vw;
+    filter: blur(20vw);
   }
 
   @keyframes shadow-slide {
     from {
-      background: hsl(var(--primary) / 20%);
-      right: 280px;
+      background: rgb(from var(--primary) r g b / 0.1) !important;
+      right: 80vw;
     }
     to {
-      background: hsl(var(--primary) / 30%);
-      right: 100px;
+      background: rgb(from var(--primary) r g b / 0.2) !important;
+      right: 0vw;
     }
   }
 }

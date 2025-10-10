@@ -10,10 +10,14 @@ import {
 } from "@/components/ui/card";
 import { Check, Linkedin } from "lucide-react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { OpenSkyLogo } from '@/components/Icons';
+import OpenSkyLogoSvg from '@/assets/open-sky-logo-light-v.svg';
+import OpenSkyLogoDarkSvg from '@/assets/open-sky-logo-dark-v.svg';
 import cn from "classnames";
+import { useTheme } from "./theme-provider";
 
 export const HeroCards = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
 
@@ -65,7 +69,11 @@ export const HeroCards = () => {
       {/* Team */}
       <Card className="w-full md:w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="mt-8 mb-6 flex justify-center items-center pb-2 pt-0">
-          <OpenSkyLogo className={cn('mt-2 mb-2 md:mb-6 h-60 w-60')} />
+          <img 
+            src={theme === 'dark' ? OpenSkyLogoDarkSvg : OpenSkyLogoSvg} 
+            alt="Open Sky Solutions Logo" 
+            className={cn('mt-2 mb-2 md:mb-6 h-60 w-60')} 
+          />
           <CardDescription className="text-primary text-md font-bold">
             Accelerate Your Growth with Custom Software
           </CardDescription>
