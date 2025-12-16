@@ -17,7 +17,6 @@ import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { useAuthStore } from "@/stores/authStore";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "./theme-provider";
 import { Moon, Sun } from "lucide-react";
@@ -45,24 +44,14 @@ const routeList: RouteProps[] = [
     href: "/",
     label: "Home",
   },
-  {
-    href: "/protected",
-    label: "Protected Route",
-  }
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const {isAuthenticated, user, handleLogout } = useAuthStore();
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
 
   const isHomePage = location.pathname === "/";
-
-  const logout = () => {
-    handleLogout();
-    navigate('/');
-  };
 
   // Ensure in-page section links scroll instead of routing
   const handleSectionClick = (href: string, closeSheet?: boolean) => (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -126,42 +115,6 @@ export const Navbar = () => {
           </nav>
 
           <div className="flex md:order-2 gap-2 items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Avatar className="relative">
-                  <div className="h-full w-full absolute top-0 bg-blue-500 bg-blend-multiply opacity-30"></div>
-                  <AvatarImage src={ProfileIcon} />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-              </DropdownMenuTrigger>
-              
-              <DropdownMenuContent>
-                <DropdownMenuLabel>
-                  <span className="block text-sm font-medium">{user?.name || 'User'}</span>
-                  <span className="block truncate text-sm">{user?.email || 'test@test.com'}</span>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem className='justify-between'>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="ghost"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  >
-                    <Sun className="h-[1.1rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-[1.1rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Toggle theme</span>
-                  </Button>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                {isAuthenticated
-                  ? <DropdownMenuItem onClick={logout}>Sign out</DropdownMenuItem>
-                  : <DropdownMenuItem onClick={() => navigate('/auth')}>Login / Sign Up</DropdownMenuItem>
-                }
-                
-              </DropdownMenuContent>
-            </DropdownMenu>
 
             {/* mobile */}
             <span className="flex md:hidden">
