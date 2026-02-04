@@ -1,0 +1,32 @@
+[user]
+	email = <your github email>
+	name = <your github name>
+[core]
+	ignorecase = false
+	editor = code --wait
+
+[aliases]
+[alias]
+	g = git
+	co = checkout
+	cod = checkout dev
+	com = checkout master
+	co- = checkout -
+	ci = commit
+	cm = commit -am
+	cob = checkout -b
+	rbm = rebase master
+	rbd = rebase dev
+  pl = pull
+	p = push
+	pf = push -f
+	delo = "!git branch | grep -v 'dev' | xargs git branch -D"
+	ignore = "!f () { if [[ $(grep -L $1 .gitignore) ]]; then echo $1 >> .gitignore; echo "File/folder added to .gitignore"; else echo "File/folder already added .gitignore"; fi; }; f"
+[push]
+	default = current
+[hub]
+	protocol = git
+[rerere]
+	enabled = 1
+[merge]
+	tool = code
