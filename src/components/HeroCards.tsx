@@ -22,7 +22,7 @@ export const HeroCards = () => {
     <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
 
       {/* Pricing */}
-      <Card className="w-full mt:12 md:w-72 h-full drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+      <Card className="w-full mt:12 md:w-72 h-full drop-shadow-xl shadow-black/10">
         <CardHeader>
           <CardTitle className="flex item-center justify-between">
             Free
@@ -67,7 +67,7 @@ export const HeroCards = () => {
       </Card>
 
       {/* Team */}
-      <Card className="w-full md:w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+      <Card className="w-full md:w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10">
         <CardHeader className="mt-8 mb-6 flex justify-center items-center pb-2 pt-0">
           <img 
             src={theme === 'dark' ? OpenSkyLogoDarkSvg : OpenSkyLogoSvg} 

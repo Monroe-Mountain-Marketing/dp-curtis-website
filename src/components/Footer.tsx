@@ -1,177 +1,90 @@
-import { LogoIcon } from "./Icons";
+import { Phone, Mail, MapPin } from "lucide-react";
+import DPCurtisLogo from '@/assets/dpcurtisimages/DPCurtisLogo-1.webp';
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="mt-20 border-t bg-background">
+    <footer id="footer" className="border-t border-gray-200 bg-white text-slate-700">
 
-      <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
-        <div className="col-span-full xl:col-span-2">
-          <a
-            rel="noreferrer noopener"
-            href="/"
-            className="font-bold text-xl flex"
-          >
-            <LogoIcon />
-            ShadcnUI/React
+      <section className="container py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10">
+
+        {/* Brand */}
+        <div className="lg:col-span-2">
+          <a rel="noreferrer noopener" href="/" className="inline-flex items-center mb-4">
+            <img src={DPCurtisLogo} alt="D.P. Curtis Trucking" className="h-10 w-auto" />
           </a>
+          <p className="text-slate-500 text-sm max-w-xs leading-relaxed mt-2">
+            Delivering the best throughout the Intermountain West since 1982. Family-owned,
+            driver-focused, and built on honesty and hard work.
+          </p>
+
+          {/* Contact details */}
+          <div className="mt-6 space-y-3 text-sm">
+            <a href="tel:18002579151" className="flex items-center gap-2 hover:text-[#801530] transition-colors">
+              <Phone className="h-4 w-4 text-[#801530] shrink-0" />
+              1-800-257-9151
+            </a>
+            <a href="mailto:helpdesk@dpcurtis.com" className="flex items-center gap-2 hover:text-[#801530] transition-colors">
+              <Mail className="h-4 w-4 text-[#801530] shrink-0" />
+              helpdesk@dpcurtis.com
+            </a>
+            <div className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 text-[#801530] shrink-0 mt-0.5" />
+              <span>1450 South Hwy. 118<br />Richfield, UT 84701</span>
+            </div>
+          </div>
         </div>
 
+        {/* Quick Links */}
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Follow US</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Github
+          <h3 className="font-bold text-slate-900 mb-2">Quick Links</h3>
+          {[
+            { href: "/", label: "Home" },
+            { href: "/about", label: "About Us" },
+            { href: "#employment-info", label: "Employment" },
+            { href: "#contact", label: "Contact" },
+          ].map(({ href, label }) => (
+            <a key={label} rel="noreferrer noopener" href={href} className="text-sm text-slate-500 hover:text-[#801530] transition-colors">
+              {label}
             </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitter
-            </a>
-          </div>
+          ))}
         </div>
 
+        {/* Legal */}
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Web
+          <h3 className="font-bold text-slate-900 mb-2">Legal</h3>
+          {[
+            { href: "/privacy", label: "Privacy Policy" },
+            { href: "/terms", label: "Terms of Service" },
+          ].map(({ href, label }) => (
+            <a key={label} rel="noreferrer noopener" href={href} className="text-sm text-slate-500 hover:text-[#801530] transition-colors">
+              {label}
             </a>
-          </div>
+          ))}
 
-          <div>
+          <div className="mt-4">
             <a
+              href="https://pulse.tenstreet.com/includes/login_html.php?uri_b=pulse_100&login_method=pulse_app_last_ssn_dob"
+              target="_blank"
               rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
+              className="inline-block mt-2 px-4 py-2 rounded-md bg-[#801530] hover:bg-[#6b1128] text-white text-sm font-medium transition-colors"
             >
-              Mobile
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Desktop
+              Apply Now
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">About</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Features
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Pricing
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              FAQ
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="/privacy"
-              className="opacity-60 hover:opacity-100"
-            >
-              Privacy
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="/terms"
-              className="opacity-60 hover:opacity-100"
-            >
-              Terms
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Youtube
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-        </div>
       </section>
 
-      <section className="container pb-14 text-center">
-        <h3>
-          &copy; 2025 Landing page made by{" "}
-          <a
-            rel="noreferrer noopener"
-            target="_blank"
-            href="https://www.linkedin.com/in/schotttaylor/"
-            className="text-primary transition-all border-primary hover:border-b-2"
-          >
-            Schott Taylor
-          </a>
-        </h3>
-      </section>
+      {/* Bottom bar */}
+      <div className="border-t border-gray-200">
+        <div className="container py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+          <span>
+            &copy; {new Date().getFullYear()} DP Curtis Trucking, Inc. All rights reserved.
+          </span>
+          <span>1450 South Hwy. 118, Richfield, UT 84701</span>
+        </div>
+      </div>
+
     </footer>
   );
 };

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: false,
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -16,6 +16,21 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        brand: {
+          50:  '#fdf2f4',
+          100: '#fce7eb',
+          200: '#f9c8d2',
+          300: '#f49aae',
+          400: '#eb5c7c',
+          500: '#d93258',
+          600: '#b51f45',
+          700: '#801530', // primary brand — matches logo & map
+          800: '#6b1128',
+          900: '#590e21',
+          950: '#330813',
+        },
+      },
       spacing: {
         '0.25': '0.0625rem', // 1px
         '0.5': '0.125rem',   // 2px
@@ -147,7 +162,8 @@ module.exports = {
         '160': '40rem',      // 640px
       },
       fontFamily: {
-        sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Open Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       width: {
         '1/7': '14.285714%',

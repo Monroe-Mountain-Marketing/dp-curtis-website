@@ -14,61 +14,22 @@ import {
 
 import { Button, buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { useNavigate } from "react-router-dom";
-import { useTheme } from "./theme-provider";
-import { Moon, Sun } from "lucide-react";
-import OpenSkyLogoSvg from '@/assets/open-sky-logo-light-h.svg';
-import OpenSkyLogoDarkSvg from '@/assets/open-sky-logo-dark-h.svg';
-import ProfileIcon from '@/assets/profile-icon.png';
-import cn from "classnames";
+import DPCurtisLogo from '@/assets/dpcurtisimages/DPCurtisLogo-1.webp';
 
 interface RouteProps {
   href: string;
   label: string;
 }
 
-const navSectionItems: RouteProps[] = [
-  { href: "#tech-stack", label: "Tech Stack" },
-  { href: "#ui-components", label: "UI System" },
-  { href: "#features", label: "Core Features" },
-  { href: "#architecture", label: "Architecture" },
-  { href: "#deployment", label: "Deployment" },
-  { href: "#getting-started", label: "Get Started" },
-];
-
 const routeList: RouteProps[] = [
-  {
-    href: "/",
-    label: "Home",
-  },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/employment", label: "Employment" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { theme, setTheme } = useTheme();
-  const navigate = useNavigate();
-
   const isHomePage = location.pathname === "/";
-
-  // Ensure in-page section links scroll instead of routing
-  const handleSectionClick = (href: string, closeSheet?: boolean) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Only intercept for hash links on the homepage
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const id = href.replace(/^#/, '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        // Fallback: update hash so browser attempts default behavior if element appears later
-        window.location.hash = href;
-      }
-      if (closeSheet) setIsOpen(false);
-    }
-  };
 
   // Handle logo click - scroll to top on homepage, navigate otherwise
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -80,7 +41,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
+    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold flex">
@@ -88,12 +49,12 @@ export const Navbar = () => {
               rel="noreferrer noopener"
               href="/"
               onClick={handleLogoClick}
-              className="ml-2 font-bold text-xl flex items-center cursor-pointer"
+              className="ml-2 flex items-center cursor-pointer"
             >
-              <img 
-                src={theme === 'dark' ? OpenSkyLogoDarkSvg : OpenSkyLogoSvg} 
-                alt="Open Sky Solutions Logo" 
-                className='h-10 w-auto mr-3' 
+              <img
+                src={DPCurtisLogo}
+                alt="D.P. Curtis Trucking"
+                className="h-10 w-auto"
               />
             </a>
           </NavigationMenuItem>
@@ -115,11 +76,23 @@ export const Navbar = () => {
           </nav>
 
           <div className="flex md:order-2 gap-2 items-center">
+            {/* Apply Now CTA — desktop */}
+            <Button
+              size="sm"
+              className="hidden md:inline-flex bg-[#801530] hover:bg-[#6b1128] text-white"
+              asChild
+            >
+              <a
+                href="https://pulse.tenstreet.com/includes/login_html.php?uri_b=pulse_100&login_method=pulse_app_last_ssn_dob"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Apply Now
+              </a>
+            </Button>
 
             {/* mobile */}
             <span className="flex md:hidden">
-              <ModeToggle />
-
               <Sheet
                 open={isOpen}
                 onOpenChange={setIsOpen}
@@ -136,7 +109,7 @@ export const Navbar = () => {
                 <SheetContent side={"left"}>
                   <SheetHeader>
                     <SheetTitle className="font-bold text-xl">
-                      Shadcn/React
+                      <img src={DPCurtisLogo} alt="D.P. Curtis Trucking" className="h-10 w-auto" />
                     </SheetTitle>
                   </SheetHeader>
                   <nav className="flex flex-col justify-center items-center gap-2 mt-4">
@@ -156,34 +129,8 @@ export const Navbar = () => {
               </Sheet>
             </span>
           </div>
-          <div className="hidden md:flex gap-2">
-            <ModeToggle />
-          </div>
         </NavigationMenuList>
       </NavigationMenu>
-
-      {isHomePage && navSectionItems.length > 0 &&
-        <NavigationMenu className={cn(
-          "hidden md:flex max-w-full w-full border-t border-t-gray-800 shadow-md",
-          "bg-background dark:bg-background brightness-[98%] dark:brightness-[120%]",
-        )}>
-          <NavigationMenuList className="container h-10 px-4 w-screen flex justify-between items-center">
-            {navSectionItems.map(({ href, label }) => (
-              <a
-                key={label}
-                href={href}
-                onClick={handleSectionClick(href)}
-                className={cn(
-                  buttonVariants({ variant: "ghost", size: 'xs' }),
-                  "hover:dark:bg-card hover:bg-secondary hover:text-primary"
-                )}
-              >
-                {label}
-              </a>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-      }
     </header>
   );
 };
