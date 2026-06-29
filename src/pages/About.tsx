@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { SEO } from '@/components/SEO';
 import {
   Truck,
   RefreshCw,
@@ -80,6 +81,25 @@ const AboutPage: React.FC = () => {
 
   return (
     <div>
+      <SEO
+        title="About Us — History & Story"
+        description="Learn about D.P. Curtis Trucking — founded in 1982 by Dent P. Curtis in Richfield, Utah. Over 40 years of flatbed and dry bulk trucking built on honesty, hard work, and solid ethics."
+        canonical="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About D.P. Curtis Trucking",
+          "url": "https://dpcurtis.com/about",
+          "description": "Founded in 1982 by Dent P. Curtis, D.P. Curtis Trucking has grown from one truck in Southern Utah to a fleet of 130+ tractors serving the western US and Canada.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dpcurtis.com/" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://dpcurtis.com/about" }
+            ]
+          }
+        }}
+      />
       {/* ── Page Hero ──────────────────────────────────────── */}
       <section className="bg-slate-900 py-16">
         <div className="container mx-auto px-4 text-center">

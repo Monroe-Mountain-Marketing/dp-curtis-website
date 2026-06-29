@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Hero } from '@/components/Hero';
+import { SEO } from '@/components/SEO';
 import truckPhoto from '@/assets/dpcurtisimages/DSC_3725.webp';
 import fleetPhoto from '@/assets/dpcurtisimages/truck2dpc.webp';
 import statesMap from '@/assets/dpcurtisimages/states-burgandy.webp';
@@ -95,6 +96,44 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
+      <SEO
+        title="Flatbed & Dry Bulk Trucking | Intermountain West"
+        description="D.P. Curtis Trucking — family-owned carrier since 1982. Dedicated routes, new equipment, full benefits (Health, 401k, Vacation). Now hiring CDL drivers across Utah, Idaho, Oregon & the Northwest."
+        canonical="/"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What states does D.P. Curtis Trucking operate in?",
+                "acceptedAnswer": { "@type": "Answer", "text": "D.P. Curtis Trucking serves Utah, Wyoming, Colorado, Arizona, Nevada, Idaho, California, Oregon, Washington, Montana, New Mexico, Kansas, and Canada." }
+              },
+              {
+                "@type": "Question",
+                "name": "What benefits does D.P. Curtis Trucking offer drivers?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Drivers receive full health insurance, vacation pay, 401k contributions, competitive earnings, dedicated regional routes, and new equipment rotated every 3 years." }
+              },
+              {
+                "@type": "Question",
+                "name": "When was D.P. Curtis Trucking founded?",
+                "acceptedAnswer": { "@type": "Answer", "text": "D.P. Curtis Trucking was founded in 1982 by Dent P. Curtis as a family business in Richfield, Utah." }
+              },
+              {
+                "@type": "Question",
+                "name": "How many trucks does D.P. Curtis Trucking operate?",
+                "acceptedAnswer": { "@type": "Answer", "text": "D.P. Curtis Trucking currently operates over 130 tractors across the United States. Tractors are rotated every 3 years and trailers every 5–6 years." }
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dpcurtis.com/" }]
+          }
+        ]}
+      />
       <Hero />
 
       {/* ── Feature Cards ────────────────────────────────────── */}

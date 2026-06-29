@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { SEO } from '@/components/SEO';
 import {
   MapPin,
   Phone,
@@ -261,6 +262,56 @@ const EmploymentPage: React.FC = () => {
 
   return (
     <div>
+      <SEO
+        title="CDL Driver Jobs — Now Hiring Flatbed Drivers"
+        description="D.P. Curtis Trucking is now hiring flatbed drivers for Northwest regional routes (Portland, Boise, Northern Utah, Southern Idaho). Full benefits, new equipment, dedicated routes. Apply today."
+        canonical="/employment"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "JobPosting",
+            "title": "Flatbed Driver \u2013 Northwest Regional",
+            "description": "D.P. Curtis Trucking is expanding its regional operations and looking for professional, safety-minded flatbed drivers. Dedicated routes based in Portland OR, Boise ID, Northern Utah, and Southern Idaho.",
+            "datePosted": "2026-06-01",
+            "validThrough": "2026-12-31",
+            "employmentType": "FULL_TIME",
+            "hiringOrganization": {
+              "@type": "Organization",
+              "name": "D.P. Curtis Trucking, Inc.",
+              "sameAs": "https://dpcurtis.com",
+              "logo": "https://dpcurtis.com/src/assets/dpcurtisimages/DPCurtisLogo-1.webp"
+            },
+            "jobLocation": [
+              { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Portland", "addressRegion": "OR", "addressCountry": "US" } },
+              { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Boise", "addressRegion": "ID", "addressCountry": "US" } },
+              { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Richfield", "addressRegion": "UT", "addressCountry": "US" } }
+            ],
+            "applicantLocationRequirements": { "@type": "Country", "name": "United States" },
+            "experienceRequirements": "Minimum 1 year certified OTR driving experience",
+            "qualifications": "Valid CDL license, 23+ years old, no DUI/DWI within 5 years, current DOT physical",
+            "skills": "Flatbed driving, tarping, load securement",
+            "jobBenefits": "Health insurance, 401k contributions, vacation pay, new equipment, dedicated routes",
+            "industry": "Transportation & Logistics",
+            "occupationalCategory": "53-3032 Heavy and Tractor-Trailer Truck Drivers",
+            "directApply": true,
+            "url": "https://dpcurtis.com/employment",
+            "applicationContact": {
+              "@type": "ContactPoint",
+              "telephone": "+1-800-257-9151",
+              "email": "helpdesk@dpcurtis.com",
+              "contactType": "hiring"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dpcurtis.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Employment", "item": "https://dpcurtis.com/employment" }
+            ]
+          }
+        ]}
+      />
       {/* ── Page Hero ──────────────────────────────────────── */}
       <section className="bg-slate-900 py-16">
         <div className="container mx-auto px-4 text-center">
