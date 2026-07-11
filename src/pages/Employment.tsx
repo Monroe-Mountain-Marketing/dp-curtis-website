@@ -110,8 +110,8 @@ const JobCard = ({ job, selected, onSelect }: { job: Job; selected: boolean; onS
     onClick={onSelect}
     className={`w-full text-left rounded-xl border-2 p-5 transition-all ${
       selected
-        ? 'border-[#801530] bg-[#fdf2f4] shadow-md'
-        : 'border-gray-200 bg-white hover:border-[#f49aae] hover:shadow-sm'
+        ? 'border-[#86005e] bg-[#f3f4f6] shadow-md'
+        : 'border-gray-200 bg-white hover:border-[#86005e] hover:shadow-sm'
     }`}
   >
     <div className="flex items-start justify-between gap-3 mb-3">
@@ -120,7 +120,7 @@ const JobCard = ({ job, selected, onSelect }: { job: Job; selected: boolean; onS
         <h3 className="font-bold text-slate-900 text-lg mt-2 leading-tight">{job.title}</h3>
         <p className="text-sm text-slate-500 mt-1">{job.type} &bull; Posted {job.postedDate}</p>
       </div>
-      <Truck className={`h-8 w-8 shrink-0 mt-1 ${selected ? 'text-[#801530]' : 'text-slate-300'}`} />
+      <Truck className={`h-8 w-8 shrink-0 mt-1 ${selected ? 'text-[#86005e]' : 'text-slate-300'}`} />
     </div>
 
     <div className="flex flex-wrap gap-2">
@@ -156,7 +156,7 @@ const JobDetail = ({ job }: { job: Job }) => {
         <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">{job.title}</h2>
         <div className="flex flex-wrap gap-2 mb-4">
           {job.locations.map((loc) => (
-            <span key={loc} className="inline-flex items-center gap-1 text-sm text-[#801530] bg-[#fdf2f4] border border-[#fce7eb] rounded-full px-3 py-1">
+            <span key={loc} className="inline-flex items-center gap-1 text-sm text-[#86005e] bg-[#f3f4f6] border border-[#e5e7eb] rounded-full px-3 py-1">
               <MapPin className="h-3.5 w-3.5" /> {loc}
             </span>
           ))}
@@ -167,12 +167,12 @@ const JobDetail = ({ job }: { job: Job }) => {
       {/* Requirements */}
       <div>
         <h3 className="flex items-center gap-2 font-bold text-slate-900 text-lg mb-4">
-          <ShieldCheck className="h-5 w-5 text-[#801530]" /> Requirements
+          <ShieldCheck className="h-5 w-5 text-[#86005e]" /> Requirements
         </h3>
         <ul className="space-y-2.5">
           {visibleReqs.map((req) => (
             <li key={req} className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#801530] shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-5 w-5 text-[#86005e] shrink-0 mt-0.5" />
               <span className="text-slate-700">{req}</span>
             </li>
           ))}
@@ -180,7 +180,7 @@ const JobDetail = ({ job }: { job: Job }) => {
         {job.requirements.length > 5 && (
           <button
             onClick={() => setShowAllReqs(!showAllReqs)}
-            className="mt-3 flex items-center gap-1 text-sm text-[#801530] font-medium hover:text-[#6b1128]"
+            className="mt-3 flex items-center gap-1 text-sm text-[#86005e] font-medium hover:text-[#86005e]"
           >
             {showAllReqs ? <><ChevronUp className="h-4 w-4" /> Show less</> : <><ChevronDown className="h-4 w-4" /> Show all {job.requirements.length} requirements</>}
           </button>
@@ -191,12 +191,12 @@ const JobDetail = ({ job }: { job: Job }) => {
       {job.preferred.length > 0 && (
         <div>
           <h3 className="flex items-center gap-2 font-bold text-slate-900 text-lg mb-4">
-            <FileText className="h-5 w-5 text-[#801530]" /> Preferred Qualifications
+            <FileText className="h-5 w-5 text-[#86005e]" /> Preferred Qualifications
           </h3>
           <ul className="space-y-2.5">
             {job.preferred.map((pref) => (
               <li key={pref} className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 text-[#801530]/60 shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-5 w-5 text-[#86005e]/60 shrink-0 mt-0.5" />
                 <span className="text-slate-600">{pref}</span>
               </li>
             ))}
@@ -205,14 +205,14 @@ const JobDetail = ({ job }: { job: Job }) => {
       )}
 
       {/* Benefits */}
-      <div className="bg-[#fdf2f4] border border-[#fce7eb] rounded-xl p-5">
+      <div className="bg-[#f3f4f6] border border-[#e5e7eb] rounded-xl p-5">
         <h3 className="flex items-center gap-2 font-bold text-slate-900 text-lg mb-4">
-          <BadgeDollarSign className="h-5 w-5 text-[#801530]" /> What We Offer
+          <BadgeDollarSign className="h-5 w-5 text-[#86005e]" /> What We Offer
         </h3>
         <ul className="space-y-2.5">
           {job.benefits.map((benefit) => (
             <li key={benefit} className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#801530] shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-5 w-5 text-[#86005e] shrink-0 mt-0.5" />
               <span className="text-slate-700">{benefit}</span>
             </li>
           ))}
@@ -227,7 +227,7 @@ const JobDetail = ({ job }: { job: Job }) => {
         </p>
         <Button
           size="lg"
-          className="w-full bg-[#801530] hover:bg-[#6b1128] text-white text-base"
+          className="w-full bg-[#86005e] hover:bg-[#86005e] text-white text-base"
           asChild
         >
           <a
@@ -240,11 +240,11 @@ const JobDetail = ({ job }: { job: Job }) => {
         </Button>
         <p className="text-slate-500 text-xs mt-3">
           Questions? Call us at{' '}
-          <a href="tel:18002579151" className="text-[#eb5c7c] hover:text-[#f49aae]">
+          <a href="tel:18002579151" className="text-[#86005e] hover:text-[#86005e]">
             1-800-257-9151
           </a>{' '}
           or email{' '}
-          <a href="mailto:helpdesk@dpcurtis.com" className="text-[#eb5c7c] hover:text-[#f49aae]">
+          <a href="mailto:helpdesk@dpcurtis.com" className="text-[#86005e] hover:text-[#86005e]">
             helpdesk@dpcurtis.com
           </a>
         </p>
@@ -315,7 +315,7 @@ const EmploymentPage: React.FC = () => {
       {/* ── Page Hero ──────────────────────────────────────── */}
       <section className="bg-slate-900 py-16">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-[#eb5c7c] font-semibold uppercase tracking-widest text-sm mb-3">
+          <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
             We're Hiring
           </p>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -327,7 +327,7 @@ const EmploymentPage: React.FC = () => {
           </p>
           <Button
             size="lg"
-            className="bg-[#801530] hover:bg-[#6b1128] text-white px-10"
+            className="bg-[#86005e] hover:bg-[#86005e] text-white px-10"
             asChild
           >
             <a
@@ -342,7 +342,7 @@ const EmploymentPage: React.FC = () => {
       </section>
 
       {/* ── Why Work Here stats bar ────────────────────────── */}
-      <section className="bg-[#801530] py-8">
+      <section className="bg-[#86005e] py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map(({ icon: Icon, label, desc }) => (
@@ -390,7 +390,7 @@ const EmploymentPage: React.FC = () => {
                 <p className="text-sm text-slate-400 font-medium">More positions coming soon</p>
                 <p className="text-xs text-slate-400 mt-1">
                   Check back or call{' '}
-                  <a href="tel:18002579151" className="text-[#801530] hover:underline">
+                  <a href="tel:18002579151" className="text-[#86005e] hover:underline">
                     1-800-257-9151
                   </a>
                 </p>
@@ -413,7 +413,7 @@ const EmploymentPage: React.FC = () => {
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+            <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
               Driver Standards
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
@@ -440,13 +440,13 @@ const EmploymentPage: React.FC = () => {
                 key={text}
                 className={`flex items-center gap-3 rounded-lg px-4 py-3 border ${
                   ok
-                    ? 'bg-green-50 border-green-100 text-green-900'
-                    : 'bg-red-50 border-red-100 text-red-900'
+                    ? 'bg-[#86005e] border-[#86005e] text-white'
+                    : 'bg-[#4b5563] border-[#374151] text-[#f3f4f6]'
                 }`}
               >
                 {ok
-                  ? <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
-                  : <XCircle className="h-5 w-5 text-red-500 shrink-0" />
+                  ? <CheckCircle2 className="h-5 w-5 text-white shrink-0" />
+                  : <XCircle className="h-5 w-5 text-[#e5e7eb] shrink-0" />
                 }
                 <span className="text-sm font-medium">{text}</span>
               </div>
@@ -455,7 +455,7 @@ const EmploymentPage: React.FC = () => {
 
           <p className="text-center text-slate-500 text-sm mt-8">
             Not sure if you qualify?{' '}
-            <a href="tel:18002579151" className="text-[#801530] font-medium hover:underline">
+            <a href="tel:18002579151" className="text-[#86005e] font-medium hover:underline">
               Give us a call
             </a>{' '}
             — we're happy to talk through your situation.
@@ -464,7 +464,7 @@ const EmploymentPage: React.FC = () => {
       </section>
 
       {/* ── Final CTA ──────────────────────────────────────── */}
-      <section className="py-16 bg-[#801530]">
+      <section className="py-16 bg-[#86005e]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to Make a Change?
@@ -476,7 +476,7 @@ const EmploymentPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-[#801530] hover:bg-[#fce7eb] font-semibold px-10"
+              className="bg-white text-[#86005e] hover:bg-[#e5e7eb] font-semibold px-10"
               asChild
             >
               <a

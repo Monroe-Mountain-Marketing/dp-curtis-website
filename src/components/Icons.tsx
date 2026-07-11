@@ -4,8 +4,8 @@ import cn from "classnames";
 export const OpenSkyLogo = ({className}: {className?: string}) => {
   const {theme} = useTheme();
   console.log('theme:', theme);
-  const gradEnd = theme === "dark" ? "#ca8a04" : "#713f12";
-  const gradStart = theme === "dark" ? "#e2e8f0" : "#ca8a04";
+  const gradEnd = theme === "dark" ? "#86005e" : "#86005e";
+  const gradStart = theme === "dark" ? "#e2e8f0" : "#86005e";
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 

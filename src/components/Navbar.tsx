@@ -79,7 +79,7 @@ export const Navbar = () => {
             {/* Apply Now CTA — desktop */}
             <Button
               size="sm"
-              className="hidden md:inline-flex bg-[#801530] hover:bg-[#6b1128] text-white"
+              className="hidden md:inline-flex bg-[#86005e] hover:bg-[#86005e] text-white"
               asChild
             >
               <a

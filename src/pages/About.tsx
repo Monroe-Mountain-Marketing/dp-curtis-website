@@ -15,8 +15,8 @@ import {
   ShieldCheck,
   Star,
 } from 'lucide-react';
-import truckPhoto from '@/assets/dpcurtisimages/DSC_3725.webp';
-import fleetPhoto from '@/assets/dpcurtisimages/truck2dpc.webp';
+const truckPhoto = '/images/dent-curtis.jpg';
+const fleetPhoto = '/images/trucks/truck3.jpg';
 
 /* ─────────────────────────────────────────────────────────────
    Data
@@ -103,7 +103,7 @@ const AboutPage: React.FC = () => {
       {/* ── Page Hero ──────────────────────────────────────── */}
       <section className="bg-slate-900 py-16">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-[#eb5c7c] font-semibold uppercase tracking-widest text-sm mb-3">
+          <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
             Est. 1982
           </p>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -116,7 +116,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* ── Stats Bar ──────────────────────────────────────── */}
-      <section className="bg-[#801530] py-8">
+      <section className="bg-[#86005e] py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white text-center">
             {stats.map(({ icon: Icon, value, label }) => (
@@ -131,11 +131,10 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* ── Founding Story ─────────────────────────────────── */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+      <section className="bg-white">
+        <div className="grid lg:grid-cols-2 items-stretch">
+            <div className="py-20 px-4 sm:px-6 lg:px-12 xl:px-16">
+              <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
                 How It Started
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
@@ -159,31 +158,29 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="rounded-xl overflow-hidden shadow-xl">
+            <div className="relative rounded-none overflow-hidden shadow-xl h-full">
               <img
                 src={truckPhoto}
                 alt="D.P. Curtis Trucking Kenworth tractor"
-                className="w-full h-full object-cover aspect-[4/3]"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
             </div>
-          </div>
         </div>
       </section>
 
       {/* ── Growth Story ───────────────────────────────────── */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-xl overflow-hidden shadow-xl order-last lg:order-first">
+      <section className="bg-white border-t border-gray-100">
+        <div className="grid lg:grid-cols-2 items-stretch">
+            <div className="rounded-none overflow-hidden shadow-xl order-last lg:order-first h-full min-h-[24rem]">
               <img
                 src={fleetPhoto}
                 alt="D.P. Curtis Trucking fleet on the highway"
-                className="w-full h-full object-cover aspect-[4/3]"
+                className="w-full h-full object-cover"
               />
             </div>
 
-            <div>
-              <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+            <div className="py-20 px-4 sm:px-6 lg:px-12 xl:px-16">
+              <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
                 Where We Are Today
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
@@ -204,34 +201,33 @@ const AboutPage: React.FC = () => {
                 through any weather, with Maxi trailer capability for oversized freight.
               </p>
             </div>
-          </div>
         </div>
       </section>
 
       {/* ── Services ───────────────────────────────────────── */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-[#86005e] border-t border-[#86005e]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+            <p className="text-[#e5e7eb] font-semibold uppercase tracking-widest text-sm mb-3">
               What We Haul
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Our Services
             </h2>
-            <p className="text-slate-600 max-w-xl mx-auto">
+            <p className="text-[#e5e7eb] max-w-xl mx-auto">
               From flatbed to dry bulk, we have the equipment and experience to move what matters.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {services.map(({ title, items }) => (
-              <Card key={title} className="border-t-4 border-t-[#801530] shadow-sm">
+              <Card key={title} className="border-t-4 border-t-[#86005e] shadow-sm bg-white">
                 <CardContent className="pt-6">
                   <h3 className="font-bold text-slate-900 text-lg mb-4">{title}</h3>
                   <ul className="space-y-2.5">
                     {items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="h-4 w-4 text-[#801530] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-4 w-4 text-[#86005e] shrink-0 mt-0.5" />
                         <span className="text-slate-700 text-sm">{item}</span>
                       </li>
                     ))}
@@ -247,7 +243,7 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+            <p className="text-[#86005e] font-semibold uppercase tracking-widest text-sm mb-3">
               What Drives Us
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
@@ -262,8 +258,8 @@ const AboutPage: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="text-center px-4">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#fdf2f4] border border-[#fce7eb] mb-4">
-                  <Icon className="h-6 w-6 text-[#801530]" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-none bg-[#f3f4f6] border border-[#e5e7eb] mb-4">
+                  <Icon className="h-6 w-6 text-[#86005e]" />
                 </div>
                 <h3 className="font-bold text-slate-900 text-lg mb-2">{title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
@@ -274,62 +270,62 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* ── Contact Form ───────────────────────────────────── */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-[#86005e] border-t border-[#86005e]">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
             {/* Left */}
             <div>
-              <p className="text-[#801530] font-semibold uppercase tracking-widest text-sm mb-3">
+              <p className="text-[#e5e7eb] font-semibold uppercase tracking-widest text-sm mb-3">
                 Get In Touch
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Don't Hesitate to Reach Out
               </h2>
-              <p className="text-slate-600 mb-8 leading-relaxed">
+              <p className="text-[#e5e7eb] mb-8 leading-relaxed">
                 Whether you're a driver interested in joining the team, a customer looking for
                 freight services, or just want to learn more about us — we'd love to hear from you.
               </p>
 
               <div className="space-y-5">
                 <a href="tel:18002579151" className="flex items-center gap-4 group">
-                  <div className="p-3 rounded-lg bg-[#fdf2f4] border border-[#fce7eb] group-hover:bg-[#fce7eb] transition-colors">
-                    <Phone className="h-5 w-5 text-[#801530]" />
+                  <div className="p-3 rounded-lg bg-[#f3f4f6] border border-[#e5e7eb] group-hover:bg-[#e5e7eb] transition-colors">
+                    <Phone className="h-5 w-5 text-[#86005e]" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Phone</p>
-                    <p className="font-semibold text-slate-900">1-800-257-9151</p>
+                    <p className="text-xs text-[#e5e7eb] uppercase tracking-wider mb-0.5">Phone</p>
+                    <p className="font-semibold text-white">1-800-257-9151</p>
                   </div>
                 </a>
 
                 <a href="mailto:helpdesk@dpcurtis.com" className="flex items-center gap-4 group">
-                  <div className="p-3 rounded-lg bg-[#fdf2f4] border border-[#fce7eb] group-hover:bg-[#fce7eb] transition-colors">
-                    <Mail className="h-5 w-5 text-[#801530]" />
+                  <div className="p-3 rounded-lg bg-[#f3f4f6] border border-[#e5e7eb] group-hover:bg-[#e5e7eb] transition-colors">
+                    <Mail className="h-5 w-5 text-[#86005e]" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Email</p>
-                    <p className="font-semibold text-slate-900">helpdesk@dpcurtis.com</p>
+                    <p className="text-xs text-[#e5e7eb] uppercase tracking-wider mb-0.5">Email</p>
+                    <p className="font-semibold text-white">helpdesk@dpcurtis.com</p>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-lg bg-[#fdf2f4] border border-[#fce7eb]">
-                    <MapPin className="h-5 w-5 text-[#801530]" />
+                  <div className="p-3 rounded-lg bg-[#f3f4f6] border border-[#e5e7eb]">
+                    <MapPin className="h-5 w-5 text-[#86005e]" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-0.5">Address</p>
-                    <p className="font-semibold text-slate-900">1450 South Hwy. 118, Richfield, UT 84701</p>
+                    <p className="text-xs text-[#e5e7eb] uppercase tracking-wider mb-0.5">Address</p>
+                    <p className="font-semibold text-white">1450 South Hwy. 118, Richfield, UT 84701</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Form */}
-            <Card className="shadow-sm border-gray-200">
+            <Card className="shadow-sm border-gray-200 bg-white">
               <CardContent className="pt-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="firstName" className="text-sm font-medium mb-1 block text-slate-700">
-                      First Name <span className="text-[#801530]">*</span>
+                      First Name <span className="text-[#86005e]">*</span>
                     </label>
                     <Input
                       id="firstName"
@@ -344,7 +340,7 @@ const AboutPage: React.FC = () => {
 
                   <div>
                     <label htmlFor="email" className="text-sm font-medium mb-1 block text-slate-700">
-                      Email Address <span className="text-[#801530]">*</span>
+                      Email Address <span className="text-[#86005e]">*</span>
                     </label>
                     <Input
                       id="email"
@@ -392,7 +388,7 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
 
-                  <Button type="submit" className="w-full bg-[#801530] hover:bg-[#6b1128] text-white">
+                  <Button type="submit" className="w-full bg-[#86005e] hover:bg-[#86005e] text-white">
                     Send Message
                   </Button>
                 </form>
