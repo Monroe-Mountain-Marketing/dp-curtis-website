@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { SEO } from '@/components/SEO';
+import { submitWebsiteLead } from '@/lib/highlevel';
 import {
   Truck,
   RefreshCw,
@@ -68,15 +69,47 @@ const services = [
 ───────────────────────────────────────────────────────────── */
 const AboutPage: React.FC = () => {
   const [formData, setFormData] = useState({ firstName: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! We will be in touch shortly.');
-    setFormData({ firstName: '', email: '', phone: '', message: '' });
+
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await submitWebsiteLead({
+        firstName: formData.firstName,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        source: 'Website Contact Form - About',
+      });
+
+      setFormData({ firstName: '', email: '', phone: '', message: '' });
+      setSubmitStatus({
+        type: 'success',
+        text: 'Thanks, your message was sent. Our team will reach out shortly.',
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        text: error instanceof Error
+          ? error.message
+          : 'Unable to submit right now. Please try again in a moment.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -388,9 +421,23 @@ const AboutPage: React.FC = () => {
                     </p>
                   </div>
 
-                  <Button type="submit" className="w-full bg-[#86005e] hover:bg-[#86005e] text-white">
-                    Send Message
+                  <Button
+                    type="submit"
+                    className="w-full bg-[#86005e] hover:bg-[#86005e] text-white"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
+
+                  {submitStatus && (
+                    <p
+                      className={`text-sm ${
+                        submitStatus.type === 'success' ? 'text-emerald-700' : 'text-red-700'
+                      }`}
+                    >
+                      {submitStatus.text}
+                    </p>
+                  )}
                 </form>
               </CardContent>
             </Card>
