@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Hero } from '@/components/Hero';
 import { SEO } from '@/components/SEO';
 const truckPhoto = '/images/trucks/truck7.jpg';
-const fleetPhoto = '/images/trucks/truck8.jpeg';
+const fleetPhoto = '/images/trucks/truck6.jpg';
 const statesMap = '/images/service-map.png';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
