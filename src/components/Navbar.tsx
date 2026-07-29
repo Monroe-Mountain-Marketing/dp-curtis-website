@@ -106,7 +106,7 @@ export const Navbar = () => {
                   </Menu>
                 </SheetTrigger>
 
-                <SheetContent side={"left"}>
+                <SheetContent side={"left"} className="bg-white">
                   <SheetHeader>
                     <SheetTitle className="font-bold text-xl">
                       <img src={DPCurtisLogo} alt="D.P. Curtis Trucking" className="h-10 w-auto" />

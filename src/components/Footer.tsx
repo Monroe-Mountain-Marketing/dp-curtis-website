@@ -43,8 +43,8 @@ export const Footer = () => {
           {[
             { href: "/", label: "Home" },
             { href: "/about", label: "About Us" },
-            { href: "#employment-info", label: "Employment" },
-            { href: "#contact", label: "Contact" },
+            { href: "/employment", label: "Employment" },
+            { href: "/#contact", label: "Contact" },
           ].map(({ href, label }) => (
             <a key={label} rel="noreferrer noopener" href={href} className="text-sm text-slate-500 hover:text-[#86005e] transition-colors">
               {label}
