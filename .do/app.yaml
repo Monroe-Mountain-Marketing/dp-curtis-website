@@ -1,0 +1,13 @@
+name: dp-curtis-website
+static_sites:
+  - name: dp-curtis-trucking
+    github:
+      repo: Monroe-Mountain-Marketing/dp-curtis-website
+      branch: dev
+      deploy_on_push: true
+    build_command: npm run build
+    output_dir: dist
+    catchall_document: index.html
+    envs:
+      - key: NODE_ENV
+        value: production
