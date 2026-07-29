@@ -1,13 +1,39 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+domains:
+- domain: www.dpcurtis.com
+  type: PRIMARY
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: dp-curtis-website
+    match:
+      authority:
+        exact: ""
+      path:
+        prefix: /
 name: dp-curtis-website
+region: nyc
 static_sites:
-  - name: dp-curtis-trucking
-    github:
-      repo: Monroe-Mountain-Marketing/dp-curtis-website
-      branch: dev
-      deploy_on_push: true
-    build_command: npm run build
-    output_dir: dist
-    catchall_document: index.html
-    envs:
-      - key: NODE_ENV
-        value: production
+- environment_slug: node-js
+  envs:
+  - key: VITE_GHL_API_KEY
+    scope: BUILD_TIME
+    type: SECRET
+    value: EV[1:QHWiyxxiW+RSaWM7+nmTvZbk7dzxaXhS:4pb99ZM8HregvDijsZ51hDLuGN6w6g2ayQKPEKi7y8WyhoPPgZp+g0PlOd1TK9ROHPmK1NAkv4g=]
+  - key: VITE_GHL_LOCATION_ID
+    scope: BUILD_TIME
+    type: SECRET
+    value: EV[1:/KXzZTOT8PJHSNr2aNs6S+GMPN/lDyxO:wkhnOUJpFyXCZmsDOx6QRqwVisxCzYhgbs2xb0JrPbDYFzBh]
+  github:
+    branch: dev
+    deploy_on_push: true
+    repo: Monroe-Mountain-Marketing/dp-curtis-website
+  name: dp-curtis-website
+  source_dir: /
+  build_command: npm run build
+  output_dir: dist
+  catchall_document: index.html
