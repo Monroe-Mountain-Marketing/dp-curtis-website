@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { LeadConnectorForm } from '@/components/LeadConnectorForm';
 import { SEO } from '@/components/SEO';
-import { submitWebsiteLead } from '@/lib/highlevel';
 import {
   Truck,
   RefreshCw,
@@ -68,50 +66,6 @@ const services = [
    About Page
 ───────────────────────────────────────────────────────────── */
 const AboutPage: React.FC = () => {
-  const [formData, setFormData] = useState({ firstName: '', email: '', phone: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (isSubmitting) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      await submitWebsiteLead({
-        firstName: formData.firstName,
-        email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
-        source: 'Website Contact Form - About',
-      });
-
-      setFormData({ firstName: '', email: '', phone: '', message: '' });
-      setSubmitStatus({
-        type: 'success',
-        text: 'Thanks, your message was sent. Our team will reach out shortly.',
-      });
-    } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        text: error instanceof Error
-          ? error.message
-          : 'Unable to submit right now. Please try again in a moment.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div>
       <SEO
@@ -355,90 +309,7 @@ const AboutPage: React.FC = () => {
             {/* Form */}
             <Card className="shadow-sm border-gray-200 bg-white">
               <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="firstName" className="text-sm font-medium mb-1 block text-slate-700">
-                      First Name <span className="text-[#86005e]">*</span>
-                    </label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      placeholder="John"
-                      required
-                      maxLength={100}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="text-sm font-medium mb-1 block text-slate-700">
-                      Email Address <span className="text-[#86005e]">*</span>
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                      maxLength={254}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="text-sm font-medium mb-1 block text-slate-700">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(555) 000-0000"
-                      maxLength={20}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="text-sm font-medium mb-1 block text-slate-700">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="How can we help you?"
-                      maxLength={180}
-                      rows={4}
-                      className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
-                    />
-                    <p className="text-xs text-slate-400 text-right mt-1">
-                      {formData.message.length} / 180
-                    </p>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-[#86005e] hover:bg-[#86005e] text-white"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-
-                  {submitStatus && (
-                    <p
-                      className={`text-sm ${
-                        submitStatus.type === 'success' ? 'text-emerald-700' : 'text-red-700'
-                      }`}
-                    >
-                      {submitStatus.text}
-                    </p>
-                  )}
-                </form>
+                <LeadConnectorForm />
               </CardContent>
             </Card>
           </div>

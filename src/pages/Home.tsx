@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Hero } from '@/components/Hero';
 import { SEO } from '@/components/SEO';
 const truckPhoto = '/images/trucks/truck7.jpg';
@@ -6,8 +6,7 @@ const fleetPhoto = '/images/trucks/truck6.jpg';
 const statesMap = '/images/service-map.png';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { submitWebsiteLead } from '@/lib/highlevel';
+import { LeadConnectorForm } from '@/components/LeadConnectorForm';
 import {
   Route,
   Truck,
@@ -98,55 +97,6 @@ const whyChooseUs = [
    Home Page
 ───────────────────────────────────────────────────────────── */
 const HomePage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (isSubmitting) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      await submitWebsiteLead({
-        firstName: formData.firstName,
-        email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
-        source: 'Website Contact Form - Home',
-      });
-
-      setFormData({ firstName: '', email: '', phone: '', message: '' });
-      setSubmitStatus({
-        type: 'success',
-        text: 'Thanks, your message was sent. Our team will reach out shortly.',
-      });
-    } catch (error) {
-      setSubmitStatus({
-        type: 'error',
-        text: error instanceof Error
-          ? error.message
-          : 'Unable to submit right now. Please try again in a moment.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div>
       <SEO
@@ -432,90 +382,7 @@ const HomePage: React.FC = () => {
             {/* Form */}
             <Card className="shadow-lg bg-white">
               <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="firstName" className="text-sm font-medium mb-1 block">
-                      First Name <span className="text-[#86005e]">*</span>
-                    </label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      placeholder="John"
-                      required
-                      maxLength={100}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="text-sm font-medium mb-1 block">
-                      Email Address <span className="text-[#86005e]">*</span>
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                      maxLength={254}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="text-sm font-medium mb-1 block">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(555) 000-0000"
-                      maxLength={20}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="text-sm font-medium mb-1 block">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us a bit about yourself or ask any questions..."
-                      maxLength={180}
-                      rows={4}
-                      className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
-                    />
-                    <p className="text-xs text-muted-foreground text-right mt-1">
-                      {formData.message.length} / 180
-                    </p>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-[#86005e] hover:bg-[#86005e] text-white"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-
-                  {submitStatus && (
-                    <p
-                      className={`text-sm ${
-                        submitStatus.type === 'success' ? 'text-emerald-700' : 'text-red-700'
-                      }`}
-                    >
-                      {submitStatus.text}
-                    </p>
-                  )}
-                </form>
+                <LeadConnectorForm />
               </CardContent>
             </Card>
           </div>
