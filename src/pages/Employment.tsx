@@ -278,8 +278,8 @@ const EmploymentPage: React.FC = () => {
             "hiringOrganization": {
               "@type": "Organization",
               "name": "D.P. Curtis Trucking, Inc.",
-              "sameAs": "https://dpcurtis.com",
-              "logo": "https://dpcurtis.com/src/assets/dpcurtisimages/DPCurtisLogo-1.webp"
+              "sameAs": "https://www.dpcurtis.com",
+              "logo": "https://www.dpcurtis.com/src/assets/dpcurtisimages/DPCurtisLogo-1.webp"
             },
             "jobLocation": [
               { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Portland", "addressRegion": "OR", "addressCountry": "US" } },
@@ -294,7 +294,7 @@ const EmploymentPage: React.FC = () => {
             "industry": "Transportation & Logistics",
             "occupationalCategory": "53-3032 Heavy and Tractor-Trailer Truck Drivers",
             "directApply": true,
-            "url": "https://dpcurtis.com/employment",
+            "url": "https://www.dpcurtis.com/employment",
             "applicationContact": {
               "@type": "ContactPoint",
               "telephone": "+1-800-257-9151",
@@ -306,8 +306,8 @@ const EmploymentPage: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dpcurtis.com/" },
-              { "@type": "ListItem", "position": 2, "name": "Employment", "item": "https://dpcurtis.com/employment" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.dpcurtis.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Employment", "item": "https://www.dpcurtis.com/employment" }
             ]
           }
         ]}

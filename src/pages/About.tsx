@@ -76,13 +76,13 @@ const AboutPage: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           "name": "About D.P. Curtis Trucking",
-          "url": "https://dpcurtis.com/about",
+          "url": "https://www.dpcurtis.com/about",
           "description": "Founded in 1982 by Dent P. Curtis, D.P. Curtis Trucking has grown from one truck in Southern Utah to a fleet of 130+ tractors serving the western US and Canada.",
           "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dpcurtis.com/" },
-              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://dpcurtis.com/about" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.dpcurtis.com/" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.dpcurtis.com/about" }
             ]
           }
         }}

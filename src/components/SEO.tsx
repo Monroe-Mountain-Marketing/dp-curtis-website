@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = 'D.P. Curtis Trucking';
-const BASE_URL  = 'https://dpcurtis.com';
+const BASE_URL  = 'https://www.dpcurtis.com';
 const DEFAULT_IMAGE = `${BASE_URL}/src/assets/dpcurtisimages/truck2dpc.webp`;
 
 export const SEO = ({ title, description, canonical, ogImage, schema }: SEOProps) => {
